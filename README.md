@@ -12,7 +12,7 @@ There are two possible use-cases for this app.
     pip install django-htmx
 ```
 
-1. Add "django_htmx_refresh" to your INSTALLED_APPS setting:
+2. Add "django_htmx_refresh" to your INSTALLED_APPS setting:
 
 ```
     INSTALLED_APPS = [
@@ -21,7 +21,7 @@ There are two possible use-cases for this app.
     ]
 ```
 
-2. Include an app namespace for your project's urls:
+3. Include an app namespace for your project's urls:
 
 ```
     path('app_path', include(('app.urls', 'app_namespace'))),
@@ -31,7 +31,7 @@ There are two possible use-cases for this app.
 
 For when you want to handle htmx requests in all the views of a particular app.
 
-3. Create a new list in your settings called HTMX_APPS:
+4. Create a new list in your settings called HTMX_APPS:
 
 ```
     HTMX_APPS = [
@@ -41,13 +41,13 @@ For when you want to handle htmx requests in all the views of a particular app.
 
 This is so our custom middleware class only affects apps we explicity define, preventing errors with other third-party apps such as the default django admin application.
 
-**Note**: The `HtmxReseponseMiddleware` class provided with this application uses the `process_template_response` hook, meaning any view you intend to be used with this class must return a response object that implements a `render` method. Luckily Django's class-based views do this for us.
+**Note**: The `HtmxReseponseMiddleware` class provided with this application uses the `process_template_response` hook, meaning any view you intend to be used with this class must return a response object that implements a `render` method. Luckily Django's class-based views do this for us with `TemplateResponse`.
 
 ### Mixin
 
 For when you want to handle htmx requests in most of your views but not necessarily all of them.
 
-3. Import the HtmxResponseMixin and add it to your view(s).
+4. Import the HtmxResponseMixin and add it to your view(s).
 
 ```
     from django_htmx_refresh.mixins import HtmxResponseMixin
