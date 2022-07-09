@@ -6,6 +6,12 @@ There are two possible use-cases for this app.
 
 ## Quick start
 
+1. django-htmx-refresh relies on the django-htmx package. You can install it with pip:
+
+```
+    pip install django-htmx
+```
+
 1. Add "django_htmx_refresh" to your INSTALLED_APPS setting:
 
 ```
@@ -37,7 +43,7 @@ This is so our custom middleware class only affects apps we explicity define, pr
 
 **Note**: The `HtmxReseponseMiddleware` class provided with this application uses the `process_template_response` hook, meaning any view you intend to be used with this class must return a response object that implements a `render` method. Luckily Django's class-based views do this for us.
 
-## Mixin
+### Mixin
 
 For when you want to handle htmx requests in most of your views but not necessarily all of them.
 
