@@ -1,7 +1,7 @@
 from django.urls import resolve
 from django.conf import settings
 
-class HtmxRefreshMiddleware(object):
+class HtmxResponseMiddleware(object):
     def __init__(self, get_response):
         """This method requires a get_response argument."""
         self.get_response = get_response
