@@ -35,7 +35,15 @@ For when you want to handle htmx requests in all the views of a particular app.
 
 ```
     HTMX_APPS = [
-        'your_apps_here'
+        'app_namespace'
+    ]
+```
+5.  Add HtmxResponseMiddleware to the MIDDLEWARE setting:
+
+```
+    MIDDLEWARE = [
+        ...
+        'django_htmx_refresh.middleware.HtmxResponseMiddleware',
     ]
 ```
 
