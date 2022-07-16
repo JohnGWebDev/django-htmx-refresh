@@ -14,9 +14,10 @@ class HtmxResponseMiddleware(object):
         """This special method is a middleware hook, which is called every time a view is finished executing."""
         app_name = resolve(request.path).app_name
         if app_name in settings.HTMX_APPS:
+            response.template_name = f"{app_name}/{response.template_name[0]}"
             if request.htmx:
-                response.template_name = f"{app_name}/partials/{response.template_name[0]}"
+                response.context["base_template"] = "partial.html"
             else:
-                response.template_name = f"{app_name}/{response.template_name[0]}"
+                response.context["base_template"] = "base.html"
         return response
         
