@@ -9,7 +9,7 @@ There are two possible use-cases for this app.
 1. django-htmx-refresh relies on the django-htmx package. You can install it with pip:
 
 ```
-    pip install django-htmx
+    pip install django-htmx django-htmx-refresh
 ```
 
 2. Add "django_htmx_refresh" to your INSTALLED_APPS setting:
