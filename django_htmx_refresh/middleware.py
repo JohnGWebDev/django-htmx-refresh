@@ -16,8 +16,8 @@ class HtmxResponseMiddleware(object):
         if app_name in settings.HTMX_APPS:
             response.template_name = f"{app_name}/{response.template_name[0]}"
             if request.htmx:
-                response.context["base_template"] = "partial.html"
+                response.context_data["base_template"] = "partial.html"
             else:
-                response.context["base_template"] = "base.html"
+                response.context_data["base_template"] = "base.html"
         return response
         
